@@ -1,0 +1,13 @@
+.find_label {
+    display: flex;
+    margin-bottom: 7px;
+    font-size: 16px;
+}
+
+.find_input {
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.find_input:hover, .find_input:focus {
+    box-shadow: 3px 3px 13px 9px rgba(44, 90, 247, 0.68);
+}
