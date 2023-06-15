@@ -7,6 +7,7 @@ const LS_KEY = 'phonebook';
 
 export const App = () => {
 
+
   const [contacts, setContacts] = useState(() => { 
     const tt = localStorage.getItem(LS_KEY);
     if (tt) { return JSON.parse(tt) } else { return [] }
