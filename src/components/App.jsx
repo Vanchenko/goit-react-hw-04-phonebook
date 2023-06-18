@@ -7,7 +7,6 @@ const LS_KEY = 'phonebook';
 
 export const App = () => {
 
-
   const [contacts, setContacts] = useState(() => { 
     const tt = localStorage.getItem(LS_KEY);
     if (tt) { return JSON.parse(tt) } else { return [] }
@@ -16,7 +15,6 @@ export const App = () => {
   const [filter, setFilter] = useState(''); 
   
    useEffect(() => {
-     console.log('use Effect Update Contacts ', contacts);
       localStorage.setItem(LS_KEY, JSON.stringify(contacts));
      },[contacts]);
 
@@ -31,13 +29,10 @@ export const App = () => {
   const findChange = (evt) => { setFilter( evt.currentTarget.value ) };
 
   const deleteItem = (id) => {
-    const idContact = contacts.findIndex(contact => contact.id === id);
-    const rr = contacts.splice(idContact, 1);
-    setContacts([...contacts]);
+    setContacts([...contacts.filter(elem => elem.id !== id)]);
   };
 
   const filteredContacts = contacts.filter(elem => elem.name.toLowerCase().includes(filter.toLowerCase()));
-  console.log('filtered', filteredContacts)
 
 return (
       <div>
