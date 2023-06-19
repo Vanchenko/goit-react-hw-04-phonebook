@@ -8,8 +8,12 @@ const LS_KEY = 'phonebook';
 export const App = () => {
 
   const [contacts, setContacts] = useState(() => { 
-    const tt = localStorage.getItem(LS_KEY);
-    if (tt) { return JSON.parse(tt) } else { return [] }
+    const savedData = localStorage.getItem(LS_KEY);
+    if (savedData) {
+      return JSON.parse(savedData);
+    } else {
+      return [];
+    }
   });
 
   const [filter, setFilter] = useState(''); 
